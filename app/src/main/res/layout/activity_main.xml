@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F0F0F0"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/gradient" />
+
+    <ImageView
+        android:layout_width="374dp"
+        android:layout_height="285dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-61dp"
+        android:src="@drawable/wforelecto" />
+
+    <TextView
+        android:id="@+id/tagalogLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="150dp"
+        android:text="Tagalog"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/inputCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tagalogLabel"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/editTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:hint="Enter a Filipino word"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" /> <!-- Center the text -->
+    </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/translateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputCardView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/bluee"
+        android:text="Translate" />
+
+    <TextView
+        android:id="@+id/bolinaoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/translateButton"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:text="Bolinao"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/outputCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bolinaoLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        android:layout_marginEnd="16dp"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/translationResult"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <ImageButton
+        android:id="@+id/microphoneButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/outputCardView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-186dp"
+        android:layout_marginEnd="15dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@android:drawable/ic_btn_speak_now" />
+
+    <ImageButton
+        android:id="@+id/filipinoSpeakerButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/outputCardView"
+        android:layout_marginTop="-186dp"
+        android:layout_marginEnd="4dp"
+        android:layout_toStartOf="@id/microphoneButton"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@android:drawable/ic_lock_silent_mode_off" />
+
+    <ImageButton
+        android:id="@+id/bolinaoSpeakerButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/outputCardView"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="-51dp"
+        android:layout_toStartOf="@id/filipinoSpeakerButton"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@android:drawable/ic_lock_silent_mode_off" />
+
+</RelativeLayout>
