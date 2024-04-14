@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         microphoneButton = findViewById(R.id.microphoneButton);
         filipinoSpeakerButton = findViewById(R.id.filipinoSpeakerButton);
         bolinaoSpeakerButton = findViewById(R.id.bolinaoSpeakerButton);
+        Button wordListButton = findViewById(R.id.bin);
 
         filipinoTextToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -83,11 +84,34 @@ public class MainActivity extends AppCompatActivity {
         translateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userInput = inputText.getText().toString().trim().toLowerCase();
+                String userInput = inputText.getText().toString().trim();
                 String bolinaoTranslation = translator.translate(userInput);
-                translationResult.setText(bolinaoTranslation);
+
+                if (bolinaoTranslation.equals("Translation not available")) {
+                    // Store the word into the database
+                    WordDatabaseHelper databaseHelper = new WordDatabaseHelper(MainActivity.this);
+                    databaseHelper.addWord(userInput);
+
+                    // Start the new activity to display the list of words
+                    Intent intent = new Intent(MainActivity.this, WordListActivity.class);
+                    startActivity(intent);
+                } else {
+                    translationResult.setText(bolinaoTranslation);
+                }
             }
         });
+
+
+        wordListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open WordListActivity
+                Intent intent = new Intent(MainActivity.this, WordListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         microphoneButton.setOnClickListener(new View.OnClickListener() {
             @Override

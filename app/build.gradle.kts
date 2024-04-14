@@ -7,8 +7,8 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.jimboy.forelecto"
-        minSdk = 24
+        applicationId = "com.jimboy.irgo"
+        minSdk = 27
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
